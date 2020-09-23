@@ -1,6 +1,6 @@
 const Home = () => {
     const view = `
-        <div class="main">
+        <div class="main-page">
             <section>
                 <h3>News!</h3>
             </section>

@@ -1,13 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
 
-$background-color: gray;
+$font: 'Public Sans', sans-serif;
+$primary-color: #242526;
+$secondary-color: orange;
 
-body {
-    background-color: $background-color;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-h3 {
+body {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #18191a;
+    font-family: $font;
+    font-size: 16px!important;
     color: white;
+}
+#content {
+    padding: 2rem;
+    text-align: center;
 }
