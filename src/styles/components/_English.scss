@@ -1,0 +1,72 @@
+.verb-test {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    &__inputwrapper {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    &__verb {
+        .currentVerb {
+            font-size: 2.3rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+    }
+    &__answermsg {
+        .answer-status {
+            margin: 1rem 0;
+            margin-bottom: 0;
+            font-size: 1rem;
+            color: white;
+        }
+    }
+}
+input[type=text] {
+    font-family: $font!important;
+    background-color: #18191a;
+    width: 200px;
+    border: 0;
+    border-bottom: 2px solid white;
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.input--empty {
+    border-bottom: 2px solid orange!important;
+    color: orange;
+    &:before {
+        content: ' \26A0';
+    }
+}
+.input--wrong {
+    border-bottom: 2px solid red!important;
+    color: red;
+    &:before {
+        content: ' \2718';
+    }
+}
+.input--correct {
+    border-bottom: 2px solid rgb(11, 180, 11)!important;
+    color: rgb(11, 180, 11);
+    &:before {
+        content: ' \2714';
+    }
+}
+input[type=button] {
+    margin: 1rem 0;
+    background:  #18191a;
+    border: 2px solid white;
+    padding: 0.5rem;
+    color: white;
+    font-weight: bold;
+    &:hover {
+        border: 2px solid rgb(51, 65, 51);
+        cursor: pointer;
+    }
+}
