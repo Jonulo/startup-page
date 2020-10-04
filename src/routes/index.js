@@ -5,7 +5,7 @@ import resolveRoutes from '../utils/router/resolveRoutes'
 import Error404 from '../pages/Error404'
 import English from '../pages/English'
 
-import { Answer } from '../utils/english/index'
+import { countDown } from '../utils/english/index'
 
 const routes = {
   '/': Home,
@@ -25,7 +25,7 @@ const router = async () => {
   content.innerHTML = await render()
 
   if (route === '/english') {
-      Answer()
+    countDown()
   }
 }
 

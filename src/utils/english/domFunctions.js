@@ -1,40 +1,37 @@
 const errorsmsg = {
-    emptyPresent: 'PRESENT',
-    emptyPast: 'PAST',
-    emptyParticiple: 'PARTICIPLE',
-    wrongPresent: 'PRESENT',
-    wrongPast: 'PAST',
-    wrongParticiple: 'PARTICIPLE',
+    spanish: 'SPANISH',
+    past: 'PAST',
+    participle: 'PARTICIPLE'
 }
 
-function Validator(p, pa, par, e = true, currentVerb = "") {
+function Validator(spa, pa, par, e = true, currentVerb = "") {
     /* 
         this function validate if any input is empty or
         if the answer is wrong.
     */
    let evaluated = ""
    if(e) {
-        evaluated = p !== "" 
-                        ? pa !== ""
-                            ? par !== ""
+        evaluated = pa !== "" 
+                        ? par !== ""
+                            ? spa !== ""
                                 ? "correct inputs"
-                            : wrongInputs(getElements().inputs.participleInput, errorsmsg.emptyParticiple, e)
-                        : wrongInputs(getElements().inputs.pastInput, errorsmsg.emptyPast, e)
-                    : wrongInputs(getElements().inputs.presentInput, errorsmsg.emptyPresent, e)
+                            : wrongInputs(getElements().inputs.spanishInput, errorsmsg.spanish, e)
+                        : wrongInputs(getElements().inputs.participleInput, errorsmsg.participle, e)
+                    : wrongInputs(getElements().inputs.pastInput, errorsmsg.past, e)
    }else {
-        evaluated = p === currentVerb.present.toLowerCase()
-                        ? pa === currentVerb.past.toLowerCase()
-                            ? par === currentVerb.parti.toLowerCase()
+        evaluated = pa === currentVerb.past.toLowerCase()
+                        ? par === currentVerb.participle.toLowerCase()
+                            ? spa === currentVerb.spanish.toLowerCase()
                                 ? "correct answer"
-                            : wrongInputs(getElements().inputs.participleInput, errorsmsg.wrongParticiple, e)
-                        : wrongInputs(getElements().inputs.pastInput, errorsmsg.wrongPast, e)
-                    : wrongInputs(getElements().inputs.presentInput, errorsmsg.wrongPresent, e)
+                            : wrongInputs(getElements().inputs.spanishInput, errorsmsg.spanish, e)
+                        : wrongInputs(getElements().inputs.participleInput, errorsmsg.participle, e)
+                    : wrongInputs(getElements().inputs.pastInput, errorsmsg.past, e)
    }
    return evaluated
 }
 
 function cleanInputs(domElements) {
-    domElements.inputs.presentInput.value = ''
+    domElements.inputs.spanishInput.value = ''
     domElements.inputs.pastInput.value = ''
     domElements.inputs.participleInput.value = ''
     domElements.resultAd.innerHTML = ''
@@ -43,20 +40,28 @@ function cleanInputs(domElements) {
 const getElements = () => {
     return {
         inputs : {
-            presentInput : document.getElementById("presentAns"),
+            spanishInput : document.getElementById("spanishAns"),
             pastInput : document.getElementById("pastAns"),
             participleInput : document.getElementById("participleAns"),
         },
-        resultAd : document.querySelector(".answer-status")
+        buttons: {
+            checkButton : document.getElementById("check"),
+            skipButton : document.getElementById("skipVerb"),
+            startButton : document.getElementById("startTest")
+        },
+        dataTest: {
+            correctCounter: document.getElementById("correctCounter"),
+            attemptsCounter: document.getElementById("attemptsCounter"),
+            skippedCounter: document.getElementById("skippedCounter")
+        },
+        resultAd : document.querySelector(".answer-status"),
     }
 }
 
 function wrongInputs(element, msg, e) {
     if(e) {
-        //empty
         element.classList.add("input--empty")
     }else {
-        //wrong answers
         element.classList.add("input--wrong")
     }
     return msg
@@ -68,6 +73,7 @@ function cleanStyles() {
         val.classList.remove("input--wrong")
     })
 }
+
 export {
     Validator,
     cleanInputs,

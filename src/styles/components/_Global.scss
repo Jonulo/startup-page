@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
 
 $font: 'Public Sans', sans-serif;
 $primary-color: #242526;
-$secondary-color: orange;
+$secondary-color: #EBB348;
 
 @mixin flex-center {
     display: flex;
@@ -26,7 +27,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    // justify-content: space-evenly;
     height: 100%;
-    margin: 3rem;
+    margin: 3rem 3rem 0 3rem;
+}
+input {
+    outline: none;
 }
