@@ -11,7 +11,7 @@ export default [
     {present: "say", past: "said", participle: "said", spanish:"decir", common:true},
     {present: "have", past: "had", participle: "had", spanish:"tener", common:true},
     {present: "get", past: "got", participle: "got", spanish:"obtener", common:true},
-    {present: "make", past: "made", participle: "made", spanish:"hace", common:true},
+    {present: "make", past: "made", participle: "made", spanish:"hacer", common:true},
     {present: "know", past: "knew", participle: "known", spanish:"saber", common:true},
     {present: "think", past: "thought", participle: "thought", spanish:"pensar", common:true},
     {present: "take", past: "took", participle: "taken", spanish:"tomar", common:true},
@@ -82,4 +82,9 @@ export default [
     {present: "pull", past: "pulled", participle: "pulled", spanish:"jalar", common:true},
     {present: "drop", past: "dropped", participle: "dropped", spanish:"tirar", common:false},
     {present: "chase", past: "chased", participle: "chased", spanish:"perseguir", common:false},
+    {present: "correct", past: "corrected", participle: "corrected", spanish:"corregir", common:false},
+    {present: "avoid", past: "avoided", participle: "avoided", spanish:"evitar", common:false},
+    {present: "seek", past: "sought", participle: "sought", spanish:"buscar", common:false},
+    {present: "settle", past: "settled", participle: "settled", spanish:"resolver", common:false},
+    {present: "approach", past: "approached", participle: "approached", spanish:"acercarse", common:false},
 ]

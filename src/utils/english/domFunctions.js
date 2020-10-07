@@ -4,28 +4,28 @@ const errorsmsg = {
     participle: 'PARTICIPLE'
 }
 
-function Validator(spa, pa, par, e = true, currentVerb = "") {
+function Validator(spa, pa, par, currentVerb = "") {
     /* 
         this function validate if any input is empty or
         if the answer is wrong.
     */
    let evaluated = ""
-   if(e) {
+   if(!currentVerb) {
         evaluated = pa !== "" 
                         ? par !== ""
                             ? spa !== ""
                                 ? "correct inputs"
-                            : wrongInputs(getElements().inputs.spanishInput, errorsmsg.spanish, e)
-                        : wrongInputs(getElements().inputs.participleInput, errorsmsg.participle, e)
-                    : wrongInputs(getElements().inputs.pastInput, errorsmsg.past, e)
+                            : wrongInputs(getElements().inputs.spanishInput, errorsmsg.spanish, true)
+                        : wrongInputs(getElements().inputs.participleInput, errorsmsg.participle, true)
+                    : wrongInputs(getElements().inputs.pastInput, errorsmsg.past, true)
    }else {
         evaluated = pa === currentVerb.past.toLowerCase()
                         ? par === currentVerb.participle.toLowerCase()
                             ? spa === currentVerb.spanish.toLowerCase()
                                 ? "correct answer"
-                            : wrongInputs(getElements().inputs.spanishInput, errorsmsg.spanish, e)
-                        : wrongInputs(getElements().inputs.participleInput, errorsmsg.participle, e)
-                    : wrongInputs(getElements().inputs.pastInput, errorsmsg.past, e)
+                            : wrongInputs(getElements().inputs.spanishInput, errorsmsg.spanish, false)
+                        : wrongInputs(getElements().inputs.participleInput, errorsmsg.participle, false)
+                    : wrongInputs(getElements().inputs.pastInput, errorsmsg.past, false)
    }
    return evaluated
 }

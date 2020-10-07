@@ -9,16 +9,19 @@ const English = async () => {
                     type="text"
                     id="pastAns"
                     placeholder="Past"
+                    disabled
                 >
                 <input
                     type="text"
                     id="participleAns"
                     placeholder="Participle"
+                    disabled
                 >
                 <input
                     type="text"
                     id="spanishAns"
                     placeholder="Spanish"
+                    disabled
                 >
             </div>
             <div class="verb-test__answermsg">
@@ -41,7 +44,15 @@ const English = async () => {
             </div>
         </div>
         <div class="results-test">
-            <p id="results"></p>
+            <div class="results-test__header">
+                <h3>Your best result:</h3>
+                <p id="dataTest-wrapper">
+                    Date:<span></span>
+                    Correct:<span></span>
+                    Attempts:<span></span>
+                    Skipped:<span></span>
+                </p>
+            </div>
         </div>
     `;
     return view

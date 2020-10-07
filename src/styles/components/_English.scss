@@ -25,6 +25,7 @@
             font-size: 2.5rem;
             font-weight: bold;
             margin: 0;
+            text-transform: capitalize;
         }
     }
     &__answermsg {
@@ -54,6 +55,9 @@ input[type=text] {
     font-size: 1.2rem;
     &:focus {
         border-bottom: 2px solid $secondary-color;
+    }
+    &:hover{
+        cursor: not-allowed;
     }
 }
 .input--empty {
@@ -123,4 +127,22 @@ input[type=text] {
 .countdown {
     @extend .timer-info;
     font-size: 1.2rem;
+}
+.results-test {
+    @extend .verb-test;
+    margin: 1rem 0;
+    padding: 1rem;
+    &__header {
+        width: 100%;
+        padding: .5rem .5rem 0 .5rem;
+        border-bottom: 2px solid $primary-color;
+        p {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            span {
+                font-weight: normal;
+            }
+        }
+    }
 }
