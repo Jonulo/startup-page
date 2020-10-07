@@ -82,7 +82,7 @@ function countDown() {
             skippedVerbs: 0,
         }
         let verb = verbGenerator()
-        let timer = 15 * 1000
+        let timer = 210 * 1000
 
         cleanInputs(domElements)
         cleanStyles()
