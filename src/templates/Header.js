@@ -31,7 +31,7 @@ const Header = () => {
         <div class="header__menu">
           <ul>
             <li>
-              <a href="/">Home</a>
+              <a href="#/">Home</a>
             </li>
             <li>
               <a href="#/english">Verbs Test</a>
