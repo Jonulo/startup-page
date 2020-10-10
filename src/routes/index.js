@@ -24,7 +24,13 @@ const router = async () => {
 
   content.innerHTML = await render()
 
-  if (route === '/english') {
+  let domMenu = document.getElementById("menu-list").children
+  if(route === '/') {
+    domMenu[0].classList.add("itemMenu-selected")
+    domMenu[0].children[0].style.color = "black"
+  }else if (route === '/english') {
+    domMenu[1].classList.add("itemMenu-selected")
+    domMenu[1].children[0].style.color = "black"
     countDown()
   }
 }
