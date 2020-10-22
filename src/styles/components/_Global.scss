@@ -10,7 +10,21 @@ $secondary-color: #EBB348;
     align-items: center;
     justify-content: center;
 }
-
+@mixin input-text {
+    font-family: $font!important;
+    background-color: #18191a;
+    width: 200px;
+    border: 0;
+    border-bottom: 2px solid white;
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+}
+@mixin button {
+    color: white;
+    background:  #18191a;
+    border: 0;
+}
 body {
     position: relative;
     background-color: #18191a;

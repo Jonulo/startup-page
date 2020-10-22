@@ -9,18 +9,21 @@ const English = async () => {
                     type="text"
                     id="pastAns"
                     placeholder="Past"
+                    class="englishInputsText"
                     disabled
                 >
                 <input
                     type="text"
                     id="participleAns"
                     placeholder="Participle"
+                    class="englishInputsText"
                     disabled
                 >
                 <input
                     type="text"
                     id="spanishAns"
                     placeholder="Spanish"
+                    class="englishInputsText"
                     disabled
                 >
             </div>

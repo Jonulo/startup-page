@@ -7,6 +7,8 @@ import English from '../pages/English'
 
 import { countDown } from '../utils/english/index'
 
+import { probando } from '../utils/homePage'
+
 const routes = {
   '/': Home,
   '/english': English,
@@ -28,6 +30,7 @@ const router = async () => {
   if(route === '/') {
     domMenu[0].classList.add("itemMenu-selected")
     domMenu[0].children[0].style.color = "black"
+    probando()
   }else if (route === '/english') {
     domMenu[1].classList.add("itemMenu-selected")
     domMenu[1].children[0].style.color = "black"

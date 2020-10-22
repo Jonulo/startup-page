@@ -44,15 +44,8 @@
         justify-content: space-between;
     }
 }
-input[type=text] {
-    font-family: $font!important;
-    background-color: #18191a;
-    width: 200px;
-    border: 0;
-    border-bottom: 2px solid white;
-    color: white;
-    text-align: center;
-    font-size: 1.2rem;
+.englishInputsText {
+    @include input-text;
     &:focus {
         border-bottom: 2px solid $secondary-color;
     }
@@ -82,9 +75,7 @@ input[type=text] {
     }
 }
 .btn--check, .btn--skip, .btn--start {
-    color: white;
-    background:  #18191a;
-    border: 0;
+    @include button;
 }
 .btn--check {
     margin: 1rem 0;
