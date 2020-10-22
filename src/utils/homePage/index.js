@@ -164,7 +164,7 @@ function iconsChannelManagment() {
         })
     }
 }
-function probando() {
+function videosManagment() {
     const channelForm = document.getElementById("channel-form")
     const updateButton = document.getElementById("updateVideos")
 
@@ -186,5 +186,5 @@ function probando() {
 }
 
 export {
-    probando
+    videosManagment
 }
