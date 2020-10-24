@@ -1,7 +1,7 @@
 const Home = () => {
     const view = `
         <div class="main-page">
-
+            <hr>
             <div class="form-content">
                 <form id="channel-form">
                     <input type="text" placeholder="Enter Channel Name" id="channel-input">
@@ -15,7 +15,6 @@ const Home = () => {
                     <input type="button" value="Update" id="updateVideos">
                 </div>
             </div>
-
             <div class="carousel">
                 <div id="video-container" class="wrapper-video"></div>
             </div>
