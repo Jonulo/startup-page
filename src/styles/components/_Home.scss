@@ -5,17 +5,28 @@
     flex-direction: column;
     align-items: center;
 }
-hr{
+.home-separateContent {
     width:100%;
     border: 0;
     height: 2px;
-    background-image: linear-gradient(to right,
-                     rgba(0, 0, 0, 0),
-                     rgba(0, 0, 0, 0),
-                     rgba(255, 0, 0, 0.9),
-                     rgba(0, 0, 0, 0),
-                     rgba(0, 0, 0, 0)
-                     );
+    &:nth-of-type(1) {
+        background-image: linear-gradient(to right,
+                         rgba(0, 0, 0, 0),
+                         rgba(0, 0, 0, 0),
+                         rgba(255, 33, 33, 0.9),
+                         rgba(252, 3, 3, 0),
+                         rgba(0, 0, 0, 0)
+                         );
+    }
+    &:nth-of-type(2) {
+        background-image: linear-gradient(to right,
+                         rgba(0, 0, 0, 0),
+                         rgba(0, 0, 0, 0),
+                         rgba(18, 201, 247, 0.9),
+                         rgba(0, 0, 0, 0),
+                         rgba(0, 0, 0, 0)
+                         );
+    }
 }
 .form-content {
     display: flex;
@@ -70,10 +81,9 @@ hr{
     position: relative;
     max-width: 100%;
     padding: 20px;
+    margin-bottom: 20px;
     overflow-x: scroll;
     overflow-y: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: $secondary-color #18191a;
     &::-webkit-scrollbar {
         width: 12px;
     }
@@ -81,9 +91,12 @@ hr{
         background: #18191a;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: $secondary-color;
+        background-color: $primary-color;
         border-radius: 20px;
-        border: 3px solid #18191a;
+        border: 5px solid #18191a;
+        &:hover {
+            background-color: $secondary-color;
+        }
     }
 }
 .wrapper-video {
