@@ -27,7 +27,16 @@ gapi.load("client:auth2", function() {
 })
 
 function getChannel(channel) {
+    const errorMgs = document.getElementById("ytError")
     let currentData = JSON.parse(localStorage.getItem("userChannelData")) || ""
+
+    if(currentData.length == 5){
+        errorMgs.innerHTML = "You only can add 5 YT channels."
+        setTimeout(() => {
+            errorMgs.innerHTML = ""
+        },2500)
+        return
+    }
 
     return gapi.client.youtube.channels.list({
         "part": [
@@ -53,7 +62,10 @@ function getChannel(channel) {
                 localStorage.setItem("userChannelData", JSON.stringify(currentData))
                 getVideos()
             }else {
-                alert("this channel already exists in your track list")
+                errorMgs.innerHTML = "This channel already exists in your tracked list."
+                setTimeout(() => {
+                    errorMgs.innerHTML = ""
+                },3000)
             }
         }else {
             let channelFinalData = {
@@ -68,7 +80,13 @@ function getChannel(channel) {
             getVideos()
         }
     })
-    .catch(err => console.log("error channel", err))
+    .catch(err => {
+        console.log("error channel", err)
+        errorMgs.innerHTML = "We could not find the YT user."
+        setTimeout(() => {
+            errorMgs.innerHTML = ""
+        },3000)
+    })
 }
 
 function getVideos() {
@@ -137,7 +155,9 @@ function showVideos() {
         videoContainer.innerHTML = output
         iconWrapper.innerHTML = iconOutput
         iconsChannelManagment()
-    }else {
+    }
+    if(playListVideos.length == 0) {
+        console.log("there is nothing", playListVideos)
         videoContainer.innerHTML= "Please add your favorite YT channels to show you its latest videos"
     }
 }

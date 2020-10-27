@@ -2,6 +2,7 @@ const Home = () => {
     const view = `
         <div class="main-page">
         <h2>YouTube</h2>
+        <p class="yt-error" id="ytError"></p>
             <hr class="home-separateContent">
             <div class="form-content">
                 <form id="channel-form">
