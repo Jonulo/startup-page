@@ -31,6 +31,17 @@ body {
     font-family: $font;
     font-size: 16px!important;
     color: white;
+    &::-webkit-scrollbar {
+        width: 15px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #18191a;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $secondary-color;
+        border-radius: 20px;
+        border: 5px solid #18191a;
+    }
 }
 .Main {
     position: relative;
