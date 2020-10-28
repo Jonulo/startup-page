@@ -1,8 +1,8 @@
 const Home = () => {
     const view = `
         <div class="main-page">
-        <h2>YouTube</h2>
-        <p id="ytError"></p>
+            <h2>YouTube</h2>
+            <p id="ytError"></p>
             <hr class="home-separateContent">
             <div class="form-content">
                 <form id="channel-form">
@@ -23,6 +23,13 @@ const Home = () => {
 
             <h2>News</h2>
             <hr class="home-separateContent">
+            <div class="news-wrapper">
+                <a href="https://www.forbes.com/innovation/"
+                target="_blank"
+                >
+                    Forbes.com/<span>innovation</span>
+                </a>
+            </div>
         </div>
     `
     return view

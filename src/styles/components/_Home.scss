@@ -136,3 +136,23 @@
         }
     }
 }
+.news-wrapper {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.news-wrapper > a {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration:none;
+    padding: 10px;
+    &:hover {
+        color: $secondary-color
+    }
+}
+.news-wrapper > a > span {
+    color:  rgba(18, 201, 247, 0.9);
+}
