@@ -27,13 +27,15 @@ gapi.load("client:auth2", function() {
 })
 
 function getChannel(channel) {
-    const errorMgs = document.getElementById("ytError")
+    const errorMsg = document.getElementById("ytError")
     let currentData = JSON.parse(localStorage.getItem("userChannelData")) || ""
 
     if(currentData.length == 5){
-        errorMgs.innerHTML = "You only can add 5 YT channels."
+        errorMsg.classList.add("yt-error")
+        errorMsg.innerHTML = "You only can add 5 YT channels."
         setTimeout(() => {
-            errorMgs.innerHTML = ""
+            errorMsg.classList.remove("yt-error")
+            errorMsg.innerHTML = ""
         },2500)
         return
     }
@@ -62,9 +64,11 @@ function getChannel(channel) {
                 localStorage.setItem("userChannelData", JSON.stringify(currentData))
                 getVideos()
             }else {
-                errorMgs.innerHTML = "This channel already exists in your tracked list."
+                errorMsg.classList.add("yt-error")
+                errorMsg.innerHTML = "This channel already exists in your tracked list."
                 setTimeout(() => {
-                    errorMgs.innerHTML = ""
+                    errorMsg.innerHTML = ""
+                    errorMsg.classList.remove("yt-error")
                 },3000)
             }
         }else {
@@ -81,10 +85,11 @@ function getChannel(channel) {
         }
     })
     .catch(err => {
-        console.log("error channel", err)
-        errorMgs.innerHTML = "We could not find the YT user."
+        errorMsg.classList.add("yt-error")
+        errorMsg.innerHTML = "We could not find the YT user."
         setTimeout(() => {
-            errorMgs.innerHTML = ""
+            errorMsg.innerHTML = ""
+            errorMsg.classList.remove("yt-error")
         },3000)
     })
 }
@@ -136,6 +141,7 @@ function showVideos() {
         let iconOutput = ""
         let output = ""
         let iconPos = 0
+
         playListVideos.forEach((video, index) => {
             if(index % 2 === 0) {
                 iconOutput += `
@@ -154,6 +160,7 @@ function showVideos() {
         })
         videoContainer.innerHTML = output
         iconWrapper.innerHTML = iconOutput
+
         iconsChannelManagment()
     }
     if(playListVideos.length == 0) {
