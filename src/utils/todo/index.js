@@ -5,8 +5,9 @@ function showNotes(){
     let output = ""
     notes.forEach(note => {
       output += `
-        <div class="note">
+        <div class="note" style="border: 2px solid ${note.color};">
           <div class="note__header">
+            <span>${note.date}</span>
             <span  
             class="note-delete"  
             data-id="${note.id}"  
@@ -45,25 +46,34 @@ function showNotes(){
 function addNote() {
   let noteStoraged = JSON.parse(localStorage.getItem("notes")) || ""
   let noteContent = document.getElementById("note-content")
+  let noteColorElement = document.getElementById("noteColor")
+  let noteDateElement = document.getElementById("noteDate")
+
   let noteCounter = 0
+  let noteColor = "white"
+  let noteDate = "-- --"
 
   if(noteStoraged) {
     noteCounter = Math.max.apply(Math, noteStoraged.map(note => {return note.id})) 
+    noteColor = noteColorElement.value 
+    noteDate = noteDateElement.value || "-- --"
     let newNote = {
       id: ++noteCounter,
       content: noteContent.value,
-      date: "today",
-      color: "choose a color"
+      date: noteDate, 
+      color: noteColor 
     }
     noteStoraged.push(newNote)
     localStorage.setItem("notes", JSON.stringify(noteStoraged))
   }else {
     let arrayNotes = []
+    noteColor = noteColorElement.value 
+    noteDate = noteDateElement.value || "-- --" 
     let newNote = {
       id: ++noteCounter,
       content: noteContent.value,
-      date: "today",
-      color: "choose a color"
+      date: noteDate, 
+      color: noteColor 
     }
     arrayNotes.push(newNote)  
     localStorage.setItem("notes", JSON.stringify(arrayNotes))
