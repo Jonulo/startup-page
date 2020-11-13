@@ -15,7 +15,7 @@ import { newNote } from '../utils/todo'
 const routes = {
   '/': Home,
   '/english': English,
-  '/todo': ToDo
+  '/notes': ToDo
 }
 
 const router = async () => {
@@ -39,7 +39,7 @@ const router = async () => {
     domMenu[1].classList.add("itemMenu-selected")
     domMenu[1].children[0].style.color = "black"
     countDown()
-  }else if (route === '/todo') {
+  }else if (route === '/notes') {
     domMenu[2].classList.add("itemMenu-selected")
     domMenu[2].children[0].style.color = "black"
     newNote()

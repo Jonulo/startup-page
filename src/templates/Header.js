@@ -37,7 +37,7 @@ const Header = () => {
               <a href="#/english">Verbs Test</a>
             </li>
             <li>
-              <a href="#/toDo">To Do</a>
+              <a href="#/notes">Notes</a>
             </li>
 
           </ul>

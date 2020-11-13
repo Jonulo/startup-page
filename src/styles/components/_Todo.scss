@@ -1,17 +1,58 @@
-.notes-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.note-title {
+  width: 50%;
+  text-align: center;
+  font-size: 2rem;
+  color: black;
+  background-color: $secondary-color;
+}
+.note-separator {
   width: 100%;
+  border: 0;
+  height: 2px;
+  margin: 20px 0;
+  background-image: linear-gradient(to right,
+                    rgba(0, 0, 0, 0),
+                    rgba(0, 0, 0, 0),
+                    rgba(235, 179, 72, 1),
+                    rgba(0, 0, 0, 0),
+                    rgba(0, 0, 0, 0),
+                    );
+}
+.notes-form {
+  display: grid;
+  grid-template: repeat(3, 1fr) /repeat(2, 1fr);
+  gap: 10px;
+  width: auto; 
   padding: 15px;
-  border: 1px dashed yellow;
+  grid-template-areas: "note noteDate"
+                       "note noteColor"
+                       "note noteButton";
   &__content {
-    @include input-text;
-    width: 50%;
+    width: 250px;
+    height: 200px;
+    border: none;
+    border: 2px solid #ffffff; 
+    border-radius: 5px;
+    background: none;
+    color: #ffffff;
+    padding: 5px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.3rem;
+    resize: none;
+    grid-area: note;
+    justify-self: flex-end;
+    &:focus {
+      outline: none;
+    }
   }
   &__button {
     @include button; 
+    grid-area: noteButton;
+    justify-self: center;
+    align-self: center;
     border: 1px solid #ffffff;
+    width: 150px;
+    height: 50px;
     &:hover {
       color: $secondary-color;
       border: 1px solid $secondary-color;
@@ -19,8 +60,33 @@
     }
   }
   &__notecolor {
+    grid-area: noteColor;
+    justify-self: center;
+    align-self: center;
+    border: none;
+    background-color: $primary-color;
     &:hover {
       cursor: pointer;
+    }
+  }
+  &__date {
+    @include input-text;
+    height: 30px;
+    text-transform: uppercase;
+    grid-area: noteDate; 
+    justify-self: center; 
+    align-self: center;
+    &::-webkit-calendar-picker-indicator {
+      background-color: #ffffff;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &::-webkit-datetime-edit-text, 
+    &::-webkit-datetime-edit-month-field,
+    &::-webkit-datetime-edit-day-field,
+    &::-webkit-datetime-edit-year-field {
+      color: rgba(255, 255, 255, 0.5);
     }
   }
 }
@@ -29,9 +95,8 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 100%;
+  width: 80%;
   margin: 15px;
-  border: 1px dashed red;
 }
 
 .note {
@@ -40,6 +105,8 @@
   margin: 10px;
   border-radius: 5px;
   overflow: auto;
+  word-wrap: break-word;
+  font-family: 'Indie Flower', cursive;
   &__header {
     display: flex;
     justify-content: space-between;
@@ -55,8 +122,15 @@
       }
     }
   }
-   &__content{
+  &__content {
     padding: 5px 15px;
+    font-size: 1.3rem;
+    &:first-letter {
+      text-transform: capitalize; 
+    }
+  }
+  &__header {
+    font-size: 1.1rem;
   }
   &::-webkit-scrollbar {
     width: 3px;
