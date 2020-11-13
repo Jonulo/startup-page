@@ -6,7 +6,7 @@ const Home = () => {
             <hr class="home-separateContent">
             <div class="form-content">
                 <form id="channel-form">
-                    <input type="text" placeholder="Enter Channel Name" id="channel-input">
+                    <input type="text" placeholder="Enter Channel Name" id="channel-input" autocomplete="off">
                     <input type="submit" placeholder="Get Channel Data" class="channel-submit"
                         value="Add"
                         id="channelFormButton"

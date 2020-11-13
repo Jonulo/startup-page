@@ -36,6 +36,10 @@ const Header = () => {
             <li>
               <a href="#/english">Verbs Test</a>
             </li>
+            <li>
+              <a href="#/notes">Notes</a>
+            </li>
+
           </ul>
         </div>
       </div>

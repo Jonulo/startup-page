@@ -11,6 +11,7 @@ const English = async () => {
                     placeholder="Past"
                     class="englishInputsText"
                     disabled
+                    autocomplete="off"
                 >
                 <input
                     type="text"
@@ -18,6 +19,7 @@ const English = async () => {
                     placeholder="Participle"
                     class="englishInputsText"
                     disabled
+                    autocomplete="off"
                 >
                 <input
                     type="text"
@@ -25,6 +27,7 @@ const English = async () => {
                     placeholder="Spanish"
                     class="englishInputsText"
                     disabled
+                    autocomplete="off"
                 >
             </div>
             <div class="verb-test__answermsg">

@@ -4,14 +4,18 @@ import getHash from '../utils/router/getHash'
 import resolveRoutes from '../utils/router/resolveRoutes'
 import Error404 from '../pages/Error404'
 import English from '../pages/English'
+import ToDo from '../pages/ToDo'
 
 import { countDown } from '../utils/english/index'
 
 import { videosManagment } from '../utils/homePage'
 
+import { newNote } from '../utils/todo'
+
 const routes = {
   '/': Home,
   '/english': English,
+  '/notes': ToDo
 }
 
 const router = async () => {
@@ -35,6 +39,10 @@ const router = async () => {
     domMenu[1].classList.add("itemMenu-selected")
     domMenu[1].children[0].style.color = "black"
     countDown()
+  }else if (route === '/notes') {
+    domMenu[2].classList.add("itemMenu-selected")
+    domMenu[2].children[0].style.color = "black"
+    newNote()
   }
 }
 
