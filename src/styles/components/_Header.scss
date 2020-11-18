@@ -60,4 +60,16 @@
 .itemMenu-selected {
     background-color: #EBB348;
     border-radius: 10px;
+    &--notification {
+      &::after {
+        color: rgba(255, 33, 33, 1);
+        content: "!!";
+      }
+    }
+    &--notificationWarning {
+      &::after {
+        color: yellow;
+        content: "!";
+      }
+    }
 }

@@ -10,7 +10,7 @@ import { countDown } from '../utils/english/index'
 
 import { videosManagment } from '../utils/homePage'
 
-import { newNote } from '../utils/todo'
+import { newNote, notify } from '../utils/todo'
 
 const routes = {
   '/': Home,
@@ -29,8 +29,10 @@ const router = async () => {
   let render = routes[route] ? routes[route] : Error404
 
   content.innerHTML = await render()
+  
+  const domMenu = document.getElementById("menu-list").children
+  const notification = notify()
 
-  let domMenu = document.getElementById("menu-list").children
   if(route === '/') {
     domMenu[0].classList.add("itemMenu-selected")
     domMenu[0].children[0].style.color = "black"
@@ -43,6 +45,12 @@ const router = async () => {
     domMenu[2].classList.add("itemMenu-selected")
     domMenu[2].children[0].style.color = "black"
     newNote()
+  }
+  if(notification === "almost there") {
+    domMenu[2].classList.add("itemMenu-selected--notificationWarning")
+  }
+  if(notification === 'its today') {
+    domMenu[2].classList.add("itemMenu-selected--notification")
   }
 }
 
