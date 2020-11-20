@@ -68,7 +68,7 @@
     }
     &--notificationWarning {
       &::after {
-        color: yellow;
+        color: rgb(255, 92, 33);
         content: "!";
       }
     }

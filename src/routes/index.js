@@ -7,6 +7,7 @@ import English from '../pages/English'
 import ToDo from '../pages/ToDo'
 
 import { countDown } from '../utils/english/index'
+import { showTable } from '../utils/english/dataTable'
 
 import { videosManagment } from '../utils/homePage'
 
@@ -41,6 +42,7 @@ const router = async () => {
     domMenu[1].classList.add("itemMenu-selected")
     domMenu[1].children[0].style.color = "black"
     countDown()
+    showTable()
   }else if (route === '/notes') {
     domMenu[2].classList.add("itemMenu-selected")
     domMenu[2].children[0].style.color = "black"

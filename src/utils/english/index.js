@@ -124,7 +124,7 @@ function countDown() {
         },1000)
     })
 }
-
+  
 export {
     checkAnswer,
     countDown

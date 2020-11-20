@@ -60,6 +60,18 @@ const English = async () => {
                 </p>
             </div>
         </div>
+        <div class="table-section">
+          <div class="table-section__button">
+            <button id="tableBtn">Show Table</button>
+          </div>
+          <div id="modalTable" class="table-section__modal">
+            <div class="modal-content">
+              <span id="closeBtn" class="modal-content__close">&times;</span>
+              <table id="verbsTable" class="modal-content__table">
+              </table>
+            </div>
+          </div>
+        </div>
     `;
     return view
 }
