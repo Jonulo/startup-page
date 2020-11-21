@@ -4,6 +4,9 @@ function showTable() {
     const tableBtn = document.getElementById("tableBtn")
     const modalTable = document.getElementById("modalTable")
     const closeTable = document.getElementById("closeBtn")
+    const searchInput = document.getElementById("searchVerb")
+
+    const verbsTable = document.getElementById("verbsTable")
 
   tableBtn.addEventListener("click", () => {
     modalTable.style.display = "block"
@@ -15,6 +18,24 @@ function showTable() {
   window.addEventListener("click", () => {
     if(event.target == modalTable)
       modalTable.style.display = "none";
+  })
+  searchInput.addEventListener("keyup", () => {
+    let filter = searchInput.value.toUpperCase() 
+    let tr = verbsTable.getElementsByTagName("tr")
+    let td, textValue
+
+    console.log("searching...")
+    for(let i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0]
+      if(td) {
+        textValue = td.textContent || td.innerText 
+        if(textValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = ""
+        } else {
+          tr[i].style.display = "none"
+        }
+      }
+    }
   })
 }
 
@@ -31,7 +52,14 @@ function fillTable() {
   verbs.forEach(verb => {
     output += `
      <tr>
-       <td>${verb.present}</td>
+       <td>
+        <a 
+        href="https://translate.google.com/#view=home&op=translate&sl=en&tl=es&text=${verb.present}"
+        target="_blank"
+        >
+          ${verb.present}
+        </a>
+      </td>
        <td>${verb.past}</td>
        <td>${verb.participle}</td>
        <td>${verb.spanish}</td>

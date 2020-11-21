@@ -62,11 +62,12 @@ const English = async () => {
         </div>
         <div class="table-section">
           <div class="table-section__button">
-            <button id="tableBtn">Show Table</button>
+            <button id="tableBtn">Show Verbs Table</button>
           </div>
           <div id="modalTable" class="table-section__modal">
             <div class="modal-content">
               <span id="closeBtn" class="modal-content__close">&times;</span>
+              <input type="text" id="searchVerb" class="modal-content__input" placeholder="Search for verbs" title="Type a verb" autocomplete="off">
               <table id="verbsTable" class="modal-content__table">
               </table>
             </div>
