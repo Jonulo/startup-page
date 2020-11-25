@@ -102,7 +102,7 @@ function countDown() {
         }
         let failedVerbs = JSON.parse(localStorage.getItem("failedVerbs")) || {}
         let verb = verbGenerator()
-        let timer = 20 * 1000//210
+        let timer = 210 * 1000
         cleanInputs(domElements)
         cleanStyles()
         domElements.buttons.startButton.disabled = true
