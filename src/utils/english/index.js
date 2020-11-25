@@ -25,7 +25,7 @@ function verbGenerator() {
     return verbs[x]
 }
 
-function checkAnswer(dataTest, currentVerb, domElements) {
+function checkAnswer(dataTest, currentVerb, domElements, failedVerbs) {
 
     domElements.buttons.checkButton.addEventListener("click", () => {
         let spanish = domElements.inputs.spanishInput.value.toLowerCase().trimEnd()
@@ -36,15 +36,28 @@ function checkAnswer(dataTest, currentVerb, domElements) {
 
         let inputValidator = Validator(spanish, past, participle)
 
+        let failedVerbExists = failedVerbs[currentVerb.present]
+  
         if(inputValidator === "correct inputs") {
             let answerValidator = Validator(spanish, past, participle, currentVerb)
             if(answerValidator === "correct answer") {
+                if(typeof failedVerbExists !== 'undefined') {
+                  if(failedVerbs[currentVerb.present] > 0) {
+                    failedVerbs[currentVerb.present] = --failedVerbs[currentVerb.present]  
+                  }
+                }
                 domElements.dataTest.correctCounter.innerHTML = ++dataTest.correctAnswers
                 setAnswerInfo(domElements)
                 setTimeout(() => {
                     currentVerb = verbGenerator()
                 }, 1000)
             }else {
+                if(typeof failedVerbExists === 'undefined') {
+                  failedVerbs[currentVerb.present] = 0
+                }
+                if(failedVerbs[currentVerb.present] <= 10){                
+                  failedVerbs[currentVerb.present] = ++failedVerbs[currentVerb.present]
+                }
                 setAnswerInfo(domElements, answerValidator)
                 domElements.dataTest.attemptsCounter.innerHTML = ++dataTest.failedAttempts
             }
@@ -54,8 +67,13 @@ function checkAnswer(dataTest, currentVerb, domElements) {
         }
     })
     document.getElementById("skipVerb").addEventListener("click", () => {
-        
         domElements.dataTest.skippedCounter.innerHTML = ++dataTest.skippedVerbs
+        if(typeof failedVerbExists === 'undefined') {
+          failedVerbs[currentVerb.present] = 0
+         }
+        if(failedVerbs[currentVerb.present] <= 10){                
+          failedVerbs[currentVerb.present] = ++failedVerbs[currentVerb.present]
+        }
         setTimeout(() => {
             cleanInputs(domElements)
             cleanStyles()
@@ -69,7 +87,8 @@ function countDown() {
     let checkButton = domElements.buttons.checkButton
     let skipButton = domElements.buttons.skipButton
     let startButton = domElements.buttons.startButton
-
+    const tableBtn = document.getElementById("tableBtn")
+    
     document.querySelector(".currentVerb").innerHTML = "Are you READY?"
     setData()
 
@@ -81,20 +100,22 @@ function countDown() {
             failedAttempts: 0,
             skippedVerbs: 0,
         }
+        let failedVerbs = JSON.parse(localStorage.getItem("failedVerbs")) || {}
         let verb = verbGenerator()
-        let timer = 210 * 1000
-
+        let timer = 20 * 1000//210
         cleanInputs(domElements)
         cleanStyles()
         domElements.buttons.startButton.disabled = true
         domElements.buttons.startButton.style.cursor = "not-allowed"
+        tableBtn.disabled = true
+        tableBtn.style.cursor = "not-allowed"
         Object.values(domElements.dataTest).forEach(val => val.innerHTML = '0')
         Object.values(domElements.inputs).forEach(val => {
             val.disabled = false
             val.style.cursor= "text"
         })
         domElements.inputs.pastInput.focus()
-        checkAnswer(dataTest, verb, domElements)
+        checkAnswer(dataTest, verb, domElements, failedVerbs)
         checkButton.disabled = false
         skipButton.disabled = false
         checkButton.style.cursor = "pointer"
@@ -106,7 +127,7 @@ function countDown() {
             let seconds = Math.floor((timer % (1000 * 60)) / 1000)
             document.getElementById("countdown").innerHTML = formatNumber(minutes)+":"+formatNumber(seconds)
             if(timer < 0) {
-                setData(dataTest)
+                setData(dataTest, failedVerbs)
                 document.getElementById("countdown").innerHTML = "00:00"
                 document.querySelector(".currentVerb").innerHTML = "Click START to try again! "
                 clearInterval(timerInterval)
@@ -116,6 +137,8 @@ function countDown() {
                 })
                 domElements.buttons.startButton.disabled = false
                 domElements.buttons.startButton.style.cursor = "pointer"
+                tableBtn.disabled = false
+                tableBtn.style.cursor = "pointer"
                 checkButton.disabled = true
                 skipButton.disabled = true
                 checkButton.style.cursor = "not-allowed"

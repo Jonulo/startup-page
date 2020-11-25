@@ -175,6 +175,17 @@
     overflow-y: auto;
     border: 2px solid #dddddd;
     border-radius: 5px;
+    &::-webkit-scrollbar {
+        width: 15px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #18191a;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $secondary-color;
+        border-radius: 20px;
+        border: 5px solid #18191a;
+    }
     &__close {
       color: #aaaaaa;
       float: right;
@@ -214,6 +225,20 @@
         background-color: $primary-color;
         color: #ffffff;
         box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+      }
+      .low-failure {
+        color: orange;
+        &::after {
+          font-weight: bolder;
+          content: '🚧'
+        }
+      }
+      .high-failure {
+        color: red;
+        &::after {
+          font-weight: bolder;
+          content: '🚨'
+        }
       }
     }
   }

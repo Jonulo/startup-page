@@ -16,6 +16,7 @@ function showTable() {
     modalTable.style.display = "none"
   })
   window.addEventListener("click", () => {
+    searchInput.value = ""
     if(event.target == modalTable)
       modalTable.style.display = "none";
   })
@@ -24,7 +25,6 @@ function showTable() {
     let tr = verbsTable.getElementsByTagName("tr")
     let td, textValue
 
-    console.log("searching...")
     for(let i = 0; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[0]
       if(td) {
@@ -41,6 +41,7 @@ function showTable() {
 
 function fillTable() {
   const verbsTable = document.getElementById("verbsTable")
+  let failedVerbs = JSON.parse(localStorage.getItem("failedVerbs")) || {}
   let output = `
     <tr>
       <th>Present</th>
@@ -49,21 +50,25 @@ function fillTable() {
       <th>Spanish</th>
     </tr>
   `
-  verbs.forEach(verb => {
+  verbs.forEach((verb, i) => {
     output += `
-     <tr>
-       <td>
-        <a 
-        href="https://translate.google.com/#view=home&op=translate&sl=en&tl=es&text=${verb.present}"
-        target="_blank"
-        >
-          ${verb.present}
-        </a>
-      </td>
-       <td>${verb.past}</td>
-       <td>${verb.participle}</td>
-       <td>${verb.spanish}</td>
-     </tr>
+      <tr
+      >
+        <td>
+          <a 
+          href="https://translate.google.com/#view=home&op=translate&sl=en&tl=es&text=${verb.present}"
+          target="_blank"
+          class="${(failedVerbs[verb.present] > 0 && failedVerbs[verb.present] <= 5) 
+                  ? 'low-failure' : (failedVerbs[verb.present] > 5 && failedVerbs[verb.present] <= 10)
+                  ? 'high-failure' : 'no-failure' }"
+          >
+            ${verb.present}
+          </a>
+        </td>
+        <td>${verb.past}</td>
+        <td>${verb.participle}</td>
+        <td>${verb.spanish}</td>
+      </tr>
     `
   })
   verbsTable.innerHTML = output
