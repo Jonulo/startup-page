@@ -1,7 +1,7 @@
 export default [
     {present: "begin", past: "began", participle: "begun", spanish:"empezar", common:true},
     {present: "dry", past: "dried", participle: "dried", spanish:"secar", common:false},
-    {present: "hug", past: "hugged", participle: "hugged", spanish:"abazar", common:true},
+    {present: "hug", past: "hugged", participle: "hugged", spanish:"abrazar", common:true},
     {present: "marry", past: "married", participle: "married", spanish:"casar", common:false},
     {present: "plan", past: "planned", participle: "planned", spanish:"planificar", common:true},
     {present: "go", past: "went", participle: "gone", spanish:"ir", common:true},
@@ -59,7 +59,7 @@ export default [
     {present: "stop", past: "stopped", participle: "stopped", spanish:"detener", common:true},
     {present: "speak", past: "spoke", participle: "spoken", spanish:"hablar", common:true},
     {present: "allow", past: "allowed", participle: "allowed", spanish:"permitir", common:true},
-    {present: "add", past: "added", participle: "added", spanish:"agegar", common:true},
+    {present: "add", past: "added", participle: "added", spanish:"agregar", common:true},
     {present: "spend", past: "spent", participle: "spent", spanish:"gastar", common:true},
     {present: "grow", past: "grew", participle: "grown", spanish:"crecer", common:true},
     {present: "offer", past: "offered", participle: "offered", spanish:"ofrecer", common:true},

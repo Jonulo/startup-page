@@ -1,4 +1,3 @@
-
 function showNotes(){
   let notes = JSON.parse(localStorage.getItem("notes")) || ""
   const notesWrapper = document.getElementById("notesWrapper")
@@ -128,12 +127,9 @@ function newNote() {
   noteContent.focus()
   showNotes()
 
-  changeNoteColor.addEventListener("change", () => {
-    const colorSelector = document.getElementById("noteColor")
-    const colorPicked = changeNoteColor.value
-
-    colorSelector.style.background = colorPicked
-    noteContent.style.border = `2px solid ${colorPicked}`
+  changeNoteColor.addEventListener("change", (e) => {
+    changeNoteColor.style.background = e.target.value 
+    noteContent.style.border = `2px solid ${e.target.value}`
   })
 
   submitNote.addEventListener("submit", async (e) => {
