@@ -143,7 +143,7 @@ function countDown() {
         let verb = ""
         verb = verbGenerator()
         failedVerbsList = []
-        let timer = 10* 1000
+        let timer = 210* 1000
         cleanInputs(domElements)
         cleanStyles()
         domElements.buttons.startButton.disabled = true
