@@ -2,6 +2,43 @@ import verbs from './verbsList'
 import { Validator, cleanInputs, getElements, cleanStyles } from './domFunctions'
 import { setData } from './storageData'
 
+var failedVerbsList = []
+
+function fillFailedVerbsTable() {
+  let output = null
+  let failedVerbs = failedVerbsList
+  const failedVerbsTable = document.getElementById("failedVerbsTable")
+  console.log("failed verbs", failedVerbs)
+  output = `
+    <tr>
+      <th>Present</th>
+      <th>Past</th>
+      <th>Participle</th>
+      <th>Spanish</th>
+    </tr>
+  `
+  failedVerbs.forEach((verb, i) => {
+    output += `
+      <tr>
+        <td>
+          <a 
+          href="https://translate.google.com/#view=home&op=translate&sl=en&tl=es&text=${verb.present}"
+          target="_blank"
+          class="${(failedVerbs[verb.present] > 0 && failedVerbs[verb.present] <= 5) 
+                  ? 'low-failure' : (failedVerbs[verb.present] > 5 && failedVerbs[verb.present] <= 10)
+                  ? 'high-failure' : 'no-failure' }"
+          >
+            ${verb.present}
+          </a>
+        </td>
+        <td>${verb.past}</td>
+        <td>${verb.participle}</td>
+        <td>${verb.spanish}</td>
+      </tr>
+    `
+  })
+  failedVerbsTable.innerHTML = output
+}
 const formatNumber = number => (number < 10) ? "0"+number : number
 
 function setAnswerInfo(domElements, errorMsg = "") {
@@ -27,7 +64,7 @@ function verbGenerator() {
 
 function checkAnswer(dataTest, currentVerb, domElements, failedVerbs) {
 
-    domElements.buttons.checkButton.addEventListener("click", () => {
+    // domElements.buttons.checkButton.addEventListener("click", () => {
         let spanish = domElements.inputs.spanishInput.value.toLowerCase().trimEnd()
         let past = domElements.inputs.pastInput.value.toLowerCase().trimEnd()
         let participle = domElements.inputs.participleInput.value.toLowerCase().trimEnd()
@@ -65,7 +102,7 @@ function checkAnswer(dataTest, currentVerb, domElements, failedVerbs) {
             domElements.resultAd.innerHTML =
                 "<strong class='input--empty'> Fill</strong> "+ inputValidator +" field"
         }
-    })
+    // })
     document.getElementById("skipVerb").addEventListener("click", () => {
         domElements.dataTest.skippedCounter.innerHTML = ++dataTest.skippedVerbs
         if(typeof failedVerbExists === 'undefined') {
@@ -74,10 +111,12 @@ function checkAnswer(dataTest, currentVerb, domElements, failedVerbs) {
         if(failedVerbs[currentVerb.present] <= 10){                
           failedVerbs[currentVerb.present] = ++failedVerbs[currentVerb.present]
         }
+        console.log("currentVerb", currentVerb)
+        failedVerbsList.push(currentVerb)
         setTimeout(() => {
-            cleanInputs(domElements)
-            cleanStyles()
-            currentVerb = verbGenerator()
+          cleanInputs(domElements)
+          cleanStyles()
+          currentVerb = verbGenerator()
         },1000)
     })
 }
@@ -101,8 +140,10 @@ function countDown() {
             skippedVerbs: 0,
         }
         let failedVerbs = JSON.parse(localStorage.getItem("failedVerbs")) || {}
-        let verb = verbGenerator()
-        let timer = 210 * 1000
+        let verb = ""
+        verb = verbGenerator()
+        failedVerbsList = []
+        let timer = 10* 1000
         cleanInputs(domElements)
         cleanStyles()
         domElements.buttons.startButton.disabled = true
@@ -143,6 +184,7 @@ function countDown() {
                 skipButton.disabled = true
                 checkButton.style.cursor = "not-allowed"
                 skipButton.style.cursor = "not-allowed"
+                fillFailedVerbsTable()
             }
         },1000)
     })

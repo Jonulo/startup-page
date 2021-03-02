@@ -52,8 +52,7 @@ function fillTable() {
   `
   verbs.forEach((verb, i) => {
     output += `
-      <tr
-      >
+      <tr>
         <td>
           <a 
           href="https://translate.google.com/#view=home&op=translate&sl=en&tl=es&text=${verb.present}"

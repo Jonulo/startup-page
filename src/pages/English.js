@@ -73,6 +73,16 @@ const English = async () => {
             </div>
           </div>
         </div>
+        <div class="failedVerbsTable__wrapper">
+          <table id="failedVerbsTable" class="failedVerbsTable__table">
+            <tr>
+              <th>Present</th>
+              <th>Past</th>
+              <th>Participle</th>
+              <th>Spanish</th>
+            </tr>
+          </table>
+        </div>
     `;
     return view
 }

@@ -243,3 +243,22 @@
     }
   }
 }
+.failedVerbsTable {
+  &__wrapper {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid white;
+    margin-top: 1.2rem;
+  }
+  &__table {
+    width: 100%;
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+      text-transform: capitalize;
+    }
+  }
+}
