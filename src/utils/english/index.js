@@ -64,7 +64,7 @@ function verbGenerator() {
 
 function checkAnswer(dataTest, currentVerb, domElements, failedVerbs) {
 
-    // domElements.buttons.checkButton.addEventListener("click", () => {
+    domElements.buttons.checkButton.addEventListener("click", () => {
         let spanish = domElements.inputs.spanishInput.value.toLowerCase().trimEnd()
         let past = domElements.inputs.pastInput.value.toLowerCase().trimEnd()
         let participle = domElements.inputs.participleInput.value.toLowerCase().trimEnd()
@@ -102,7 +102,7 @@ function checkAnswer(dataTest, currentVerb, domElements, failedVerbs) {
             domElements.resultAd.innerHTML =
                 "<strong class='input--empty'> Fill</strong> "+ inputValidator +" field"
         }
-    // })
+    })
     document.getElementById("skipVerb").addEventListener("click", () => {
         domElements.dataTest.skippedCounter.innerHTML = ++dataTest.skippedVerbs
         if(typeof failedVerbExists === 'undefined') {
