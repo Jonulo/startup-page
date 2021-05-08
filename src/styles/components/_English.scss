@@ -262,3 +262,31 @@
     }
   }
 }
+.verbs-difficulty {
+    padding: 5px;
+    &__easy, &__medium, &__hard {
+        margin: 0px 10px;
+        padding: 5px;
+        &:hover {
+           color: $secondary-color; 
+           cursor: pointer;
+        }
+    }
+    &__easy {
+        &--easy {
+            cursor:pointer;
+        }
+    }
+    &__medium {
+        &--medium {
+            cursor:pointer;
+        }
+
+    }
+    &__hard {
+        &--hard {
+            cursor:pointer;
+        }
+
+    }
+}

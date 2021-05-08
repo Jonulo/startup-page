@@ -1,4 +1,4 @@
-import verbs from './verbsList'
+import verbs from './verbsListForTable'
 
 function showTable() {
     const tableBtn = document.getElementById("tableBtn")

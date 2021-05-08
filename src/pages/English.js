@@ -1,6 +1,39 @@
 const English = async () => {
     const view = `
         <div class="verb-test">
+            <div class="verbs-difficulty">
+                <label class="verbs-difficulty__easy">
+                    <input
+                        type="radio"
+                        class="verbs-difficulty__easy--easy"
+                        id="easy-verbs"
+                        name="verb-diff"
+                        value="easy"
+                        checked
+                    >
+                    Easy
+                </label>
+                <label class="verbs-difficulty__medium">
+                    <input
+                        type="radio"
+                        class="verbs-difficulty__medium--medium"
+                        id="medium-verbs"
+                        name="verb-diff"
+                        value="medium"
+                    >
+                    Medium 
+                </label>
+                <label class="verbs-difficulty__hard">
+                    <input
+                        type="radio"
+                        class="verbs-difficulty__hard--hard"
+                        id="hard-verbs"
+                        name="verb-diff"
+                        value="hard"
+                    >
+                    Hard 
+                </label>
+            </div>
             <div class="verb-test__verb">
                 <p class="currentVerb"></p>
             </div>

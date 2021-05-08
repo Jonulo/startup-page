@@ -1,8 +1,11 @@
-import verbs from './verbsList'
+import easy_verbs from './verbs_lists/easy_verbs'
+import medium_verbs from './verbs_lists/medium_verbs'
+import hard_verbs from './verbs_lists/hard_verbs'
 import { Validator, cleanInputs, getElements, cleanStyles } from './domFunctions'
 import { setData } from './storageData'
 
 var failedVerbsList = []
+var chosenDifficulty = null
 
 function fillFailedVerbsTable() {
   let output = null
@@ -57,9 +60,22 @@ function setAnswerInfo(domElements, errorMsg = "") {
 }
 
 function verbGenerator() {
-    var x = Math.floor(Math.random() * verbs.length)
-    document.querySelector(".currentVerb").innerHTML = "- "+verbs[x].present+" -"
-    return verbs[x]
+    if(chosenDifficulty === "easy") {
+      var x = Math.floor(Math.random() * easy_verbs.length)
+      document.querySelector(".currentVerb").innerHTML = "- "+easy_verbs[x].present+" -"
+      return easy_verbs[x]
+    } else if(chosenDifficulty === "medium") {
+      var x = Math.floor(Math.random() * medium_verbs.length)
+      document.querySelector(".currentVerb").innerHTML = "- "+medium_verbs[x].present+" -"
+      return medium_verbs[x]
+    } else if(chosenDifficulty === "hard") {
+      var x = Math.floor(Math.random() * hard_verbs.length)
+      document.querySelector(".currentVerb").innerHTML = "- "+hard_verbs[x].present+" -"
+      return hard_verbs[x]
+    } else {
+      console.error("error choosing difficulty")
+    }
+
 }
 
 function checkAnswer(dataTest, currentVerb, domElements, failedVerbs) {
@@ -132,6 +148,22 @@ function countDown() {
     setData()
 
     startButton.addEventListener("click", () => {
+        const easyDifficult = document.getElementById("easy-verbs")
+        const mediumDifficult = document.getElementById("medium-verbs")
+        const hardDifficult = document.getElementById("hard-verbs")
+        // let chosenDifficulty = ""
+
+        if(easyDifficult.checked) {
+          chosenDifficulty = easyDifficult.value 
+        } else if(mediumDifficult.checked) {
+          chosenDifficulty = mediumDifficult.value 
+        } else if(hardDifficult.checked){
+          chosenDifficulty = hardDifficult.value
+        } else {
+          console.log("error choosing difficult")
+        }
+
+        console.log(chosenDifficulty)
         let formatDate = new Date().toString()
         let dataTest = {
             date: formatDate.substr(4, 11),
