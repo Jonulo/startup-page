@@ -33,4 +33,5 @@ export default [
     {present: "expect", past: "expected", participle: "expected", spanish:"esperar", common:true},
     {present: "build", past: "built", participle: "built", spanish:"construir", common:true},
     {present: "carry", past: "carried", participle: "carried", spanish:"llevar", common:true},
+    {present: "drink", past: "drank", participle: "drunk", spanish:"tomar", common:true},
 ]

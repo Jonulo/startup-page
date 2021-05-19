@@ -13,4 +13,10 @@ export default [
     {present: "seal", past: "sealed", participle: "sealed", spanish:"sellar", common:false},
     {present: "struggle", past: "struggled", participle: "struggled", spanish:"luchar", common:false},
     {present: "spark", past: "sparked", participle: "sparked", spanish:"encender", common:false},
+    {present: "rage", past: "raged", participle: "raged", spanish:"enfurecerse", common:false},
+    {present: "drown", past: "drowned", participle: "drowned", spanish:"ahogar", common:false},
+    {present: "worsen", past: "worsened", participle: "worsened", spanish:"empeorar", common:false},
+    {present: "lack", past: "lacked", participle: "lacked", spanish:"falta", common:false},
+    {present: "fetch", past: "fetched", participle: "fetched", spanish:"traer", common:false},
+    {present: "harm", past: "harmed", participle: "harmed", spanish:"dañar", common:false},
 ]
