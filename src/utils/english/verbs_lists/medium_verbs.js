@@ -6,7 +6,7 @@ export default [
     {present: "provide", past: "provided", participle: "provided", spanish:"proveer", common:true},
     {present: "sit", past: "sat", participle: "sat", spanish:"sentarse", common:true},
     {present: "stand", past: "stood", participle: "stood", spanish:"estar", common:true},
-    {present: "meet", past: "met", participle: "met", spanish:"reunirse", common:true},
+    {present: "meet", past: "met", participle: "met", spanish:"reunir", second_spanish_meaning:"conocer",  common:true},
     {present: "include", past: "included", participle: "included", spanish:"incluir", common:true},
     {present: "set", past: "set", participle: "set", spanish:"establecer", common:true},
     {present: "learn", past: "learnt", participle: "learnt", spanish:"aprender", common:true},

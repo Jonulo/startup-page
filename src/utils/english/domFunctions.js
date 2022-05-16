@@ -21,7 +21,7 @@ function Validator(spa, pa, par, currentVerb = "") {
    }else {
         evaluated = pa === currentVerb.past.toLowerCase()
                         ? par === currentVerb.participle.toLowerCase()
-                            ? spa === currentVerb.spanish.toLowerCase()
+                            ? spa === currentVerb.spanish.toLowerCase() || spa === currentVerb.second_spanish_meaning.toLowerCase()
                                 ? "correct answer"
                             : wrongInputs(getElements().inputs.spanishInput, errorsmsg.spanish, false)
                         : wrongInputs(getElements().inputs.participleInput, errorsmsg.participle, false)
