@@ -33,4 +33,12 @@ export default [
     {present: "expect", past: "expected", participle: "expected", spanish:"esperar", common:true},
     {present: "build", past: "built", participle: "built", spanish:"construir", common:true},
     {present: "carry", past: "carried", participle: "carried", spanish:"llevar", common:true},
+    {present: "delay", past: "delayed", participle: "delayed", spanish:"demora", common:true},
+    {present: "measure", past: "measured", participle: "measured", spanish:"medir", common:true},
+    {present: "bother", past: "bothered", participle: "bothered", spanish:"molestar", common:true},
+    {present: "scratch", past: "scratched", participle: "scratched", spanish:"rascar", second_spanish_meaning:"rayar", common:true},
+    {present: "grab", past: "grabbed", participle: "grabbed", spanish:"agarrar", common:true},
+    {present: "refuse", past: "refused", participle: "refused", spanish:"rechazar", common:true},
+    {present: "waste", past: "wasted", participle: "wasted", spanish:"desperdiciar", common:true},
+    {present: "rescue", past: "rescued", participle: "rescued", spanish:"rescatar", common:true},
 ]

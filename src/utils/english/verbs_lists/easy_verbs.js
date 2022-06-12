@@ -50,4 +50,7 @@ export default [
     {present: "add", past: "added", participle: "added", spanish:"agregar", common:true},
     {present: "remember", past: "remembered", participle: "remembered", spanish:"recordar", common:true},
     {present: "pull", past: "pulled", participle: "pulled", spanish:"jalar", common:true},
+    {present: "size", past: "sized", participle: "sized", spanish:"tamaño", common:true},
+    {present: "lie", past: "lied", participle: "lied", spanish:"mentir", common:true},
+
 ]

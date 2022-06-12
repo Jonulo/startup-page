@@ -13,4 +13,7 @@ export default [
     {present: "seal", past: "sealed", participle: "sealed", spanish:"sellar", common:false},
     {present: "struggle", past: "struggled", participle: "struggled", spanish:"luchar", common:false},
     {present: "spark", past: "sparked", participle: "sparked", spanish:"encender", common:false},
+    {present: "achieve", past: "achieved", participle: "achieved", spanish:"lograr", common:false},
+    {present: "grant", past: "granted", participle: "granted", spanish:"otorgar", common:false},
+    {present: "lack", past: "lacked", participle: "lacked", spanish:"faltar", second_spanish_meaning:"carecer", common:true},
 ]
